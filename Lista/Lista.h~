@@ -88,7 +88,7 @@ int Lista<T>::getTamanio() {
   Nodo<T> *aux = inicio;
   int cont = 0;
   
-  while(aux != NULL){
+  while(aux =! NULL){
     cont++;
     aux->getNext();
   }
