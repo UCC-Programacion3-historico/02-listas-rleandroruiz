@@ -244,7 +244,7 @@ template<class T>
 void Lista<T>::vaciar() {
   
   Nodo<T> *aux = inicio;
-  Nodo<T> *ant = inicio;
+  Nodo<T> *ant;
   
   while(aux != NULL){
     ant = aux;
