@@ -58,7 +58,9 @@ CircList<T>::CircList(const Lista<T> &li) {}
  * @tparam T
  */
 template<class T>
-CircList<T>::~CircList() {}
+CircList<T>::~CircList() {
+    vaciar();
+}
 
 
 /**
@@ -194,6 +196,6 @@ void CircList<T>::vaciar() {
 }
 
 
-};
+
 
 #endif //CIRCLIST_H

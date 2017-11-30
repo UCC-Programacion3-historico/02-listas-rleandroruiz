@@ -17,11 +17,11 @@ public:
     next = n;
   }
   
-  T setDato(T d){
+  void setDato(T d){
     dato = d;
   }
   
-  void getDato(){
+  T getDato(){
     return dato;
   }
   

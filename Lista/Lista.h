@@ -37,6 +37,8 @@ public:
     void reemplazar(int pos, T dato);
 
     void vaciar();
+
+    void insertAfter2(T oldVale, int n, T newValue);
 };
 
 
@@ -91,9 +93,9 @@ int Lista<T>::getTamanio() {
   Nodo<T> *aux = inicio;
   int cont = 0;
   
-  while(aux != NULL){
+  while(aux->getNext() != NULL){
     cont++;
-    aux->getNext();
+    aux = aux->getNext();
   }
   
   return cont;
@@ -151,7 +153,18 @@ void Lista<T>::insertarPrimero(T dato) {
  */
 template<class T>
 void Lista<T>::insertarUltimo(T dato) {
-  
+  if (NULL == inicio) {
+    inicio = new Nodo<T>(dato, NULL);
+    return;
+  }
+
+  Nodo<T> *aux = inicio;
+  while (aux->getNext() != NULL) {
+    aux = aux->getNext();
+  }
+  Nodo<T> *nn = new Nodo<T>(dato, NULL);
+  aux->setNext(nn);
+
 }
 
 
@@ -253,6 +266,25 @@ void Lista<T>::vaciar() {
   }
   inicio = NULL;  
   
+}
+
+template<class T>
+void Lista::insertAfter2(T oldValue, int n, T newValue){
+  int c = 0;
+  Nodo<T> *aux = inicio;
+  while(c <= n && aux == NULL) {
+    if (aux->getDato() == oldValue) {
+      c++;
+      if(c == n){
+        Nodo<T> *nn = new Nodo<T>(newValue, aux->getNext())
+        aux->setNext(nn);
+      }
+    }
+      aux = aux->getNext();
+  }
+  if(nullptr == aux)
+    throw 1;
+
 }
 
 
